@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Form, Button } from 'react-bootstrap';
 
 export const ModificarJuego = ({ juego, funcion_modificar }) => {
 
@@ -26,12 +27,18 @@ export const ModificarJuego = ({ juego, funcion_modificar }) => {
     return (
         <>
             <div>
-                ID = {juego.id}
-                Nombre = <input type="text" placeholder={juego.nombre} onChange={cambiarNombre} />
-                Precio = <input type="number" placeholder={juego.precio} onChange={cambiarPrecio} />
-                Tipo = <input type="text" placeholder={juego.tipo} onChange={cambiarTipo} />
+                <div>ID = {juego.id}</div>
+                <Form.Group className="mb-2" controlId={`nombre-${juego.id}`}>
+                    <Form.Control type="text" placeholder={juego.nombre} onChange={cambiarNombre} />
+                </Form.Group>
+                <Form.Group className="mb-2" controlId={`precio-${juego.id}`}>
+                    <Form.Control type="number" placeholder={juego.precio} onChange={cambiarPrecio} />
+                </Form.Group>
+                <Form.Group className="mb-2" controlId={`tipo-${juego.id}`}>
+                    <Form.Control type="text" placeholder={juego.tipo} onChange={cambiarTipo} />
+                </Form.Group>
 
-                <button onClick={() => funcion_modificar(juego_modificado)}>Guardar Cambios</button>
+                <Button onClick={() => funcion_modificar(juego_modificado)}>Guardar Cambios</Button>
             </div>
         </>
     )

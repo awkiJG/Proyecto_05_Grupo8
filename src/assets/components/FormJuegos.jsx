@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { ModificarJuego } from "./ModificarJuego.jsx";
 import { BuscarJuego } from "./BuscarJuego.jsx";
+import { Form, Button } from 'react-bootstrap';
 
 function FormJuegos() {
 
@@ -60,23 +61,48 @@ function FormJuegos() {
 
     return (
         <>
-            <form onSubmit={agregarJuego}>
-                <input type="text" name="nombre"
-                    placeholder="Nombre" value={formulario.nombre} onChange={handleChange} required />
+            <Form onSubmit={agregarJuego}>
+                <Form.Group className="mb-2" controlId="nombre">
+                    <Form.Control
+                        type="text"
+                        name="nombre"
+                        placeholder="Nombre"
+                        value={formulario.nombre}
+                        onChange={handleChange}
+                        required
+                    />
+                </Form.Group>
 
-                <input min="0" type="number" name="precio"
-                    placeholder="Precio Unitario" value={formulario.precio} onChange={handleChange} required />
+                <Form.Group className="mb-2" controlId="precio">
+                    <Form.Control
+                        min="0"
+                        type="number"
+                        name="precio"
+                        placeholder="Precio Unitario"
+                        value={formulario.precio}
+                        onChange={handleChange}
+                        required
+                    />
+                </Form.Group>
 
-                <input type="text" name="tipo"
-                    placeholder="Tipo" value={formulario.tipo} onChange={handleChange} required />
+                <Form.Group className="mb-2" controlId="tipo">
+                    <Form.Control
+                        type="text"
+                        name="tipo"
+                        placeholder="Tipo"
+                        value={formulario.tipo}
+                        onChange={handleChange}
+                        required
+                    />
+                </Form.Group>
 
-                <button type="submit">Agregar Juego</button>
-            </form>
+                <Button type="submit">Agregar Juego</Button>
+            </Form>
 
             {juegos.length > 0 && <h2>Lista de Juegos</h2>}
             <ul>
                 {juegos.map((j) => (
-                    <li key={j.id}>
+                    <li key={j.id} style={{ marginBottom: '8px' }}>
                         {j.modificado === false ? (
                             <ModificarJuego juego={j} funcion_modificar={agregar_modificado} modificar={modificar} />
                         ) : (
@@ -87,7 +113,9 @@ function FormJuegos() {
                                 Tipo: {j.tipo}
                             </div>
                         )}
-                        <button onClick={() => modificar(j)}>Modificar</button>
+                        <Button variant="secondary" size="sm" onClick={() => modificar(j)} style={{ marginLeft: 8 }}>
+                            Modificar
+                        </Button>
                     </li>
                 ))}
             </ul>

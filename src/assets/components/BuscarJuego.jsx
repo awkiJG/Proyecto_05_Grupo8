@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Form, Button } from 'react-bootstrap';
 
 export const BuscarJuego = ({ juegos }) => {
     const [ingreso, setIngreso] = useState("");
@@ -6,7 +7,7 @@ export const BuscarJuego = ({ juegos }) => {
 
     const ingresar = (e) => {
         setBusqueda(false);
-        setIngreso(parseInt(e.target.value))
+        setIngreso(parseInt(e.target.value));
     }
 
    const handleClick = () => {
@@ -21,12 +22,14 @@ export const BuscarJuego = ({ juegos }) => {
     return (
         <>
             <h1>Buscar Juego por ID</h1>
-            <input
-                type="number"
-                placeholder="Buscar juego por ID"
-                onChange={ingresar}
-            />
-            <button onClick={handleClick}>Buscar</button>
+            <Form.Group className="d-flex gap-2" controlId="buscarId">
+                <Form.Control
+                    type="number"
+                    placeholder="Buscar juego por ID"
+                    onChange={ingresar}
+                />
+                <Button onClick={handleClick}>Buscar</Button>
+            </Form.Group>
             {busqueda && resultado.length > 0 ?
                 <div>
                 ID: {resultado[0].id} - 
