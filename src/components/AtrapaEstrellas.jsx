@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../styles/AtrapaEstrellas.css";
+import "../assets/styles/AtrapaEstrellas.css";
 
 export default function AtrapaEstrellas() {
   const [puntaje, setPuntaje] = useState(0);

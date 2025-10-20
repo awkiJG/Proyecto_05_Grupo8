@@ -1,8 +1,8 @@
-import Layout from './assets/pages/Layout.jsx';
-import Home from './assets/pages/Home.jsx';
-import Error from './assets/pages/Error.jsx';
-import Games from './assets/pages/Games.jsx';
-import AboutUs from './assets/pages/AboutUs.jsx';
+import Layout from './pages/Layout.jsx';
+import Home from './pages/Home.jsx';
+import Error from './pages/Error.jsx';
+import Games from './pages/Games.jsx';
+import AboutUs from './pages/AboutUs.jsx';
 import { Container} from 'react-bootstrap';
 import { Routes, Route } from 'react-router-dom';
 

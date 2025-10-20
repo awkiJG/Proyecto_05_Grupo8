@@ -1,7 +1,7 @@
-import mario from '../img/mario.jpg';
+import mario from '../assets/img/mario.jpg';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import sonidoMario from '../sounds/mario.mp3'; 
+import sonidoMario from '../assets/sounds/mario.mp3'; 
 import FormJuegos from '../components/FormJuegos.jsx';
 import AtrapaEstrellas from '../components/AtrapaEstrellas.jsx';
 
