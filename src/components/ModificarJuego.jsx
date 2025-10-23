@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, Button } from 'react-bootstrap';
+import '../assets/styles/FormJuegos.css';
 
 export const ModificarJuego = ({ juego, funcion_modificar }) => {
 

@@ -5,6 +5,7 @@ import Games from './pages/Games.jsx';
 import AboutUs from './pages/AboutUs.jsx';
 import { Container} from 'react-bootstrap';
 import { Routes, Route } from 'react-router-dom';
+import GameStar from './pages/GameStar.jsx';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<Layout/>}>
             <Route index element={<Home/>}/>
             <Route path="/games" element={<Games/>}/>
+            <Route path="/gameStar" element={<GameStar/>}/>
             <Route path="/aboutUs" element={<AboutUs/>}/>
             <Route path="*" element={<Error/>}/>
           </Route>

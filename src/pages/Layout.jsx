@@ -15,10 +15,10 @@ function Layout() {
                                 <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="/games">Games</Nav.Link>
                                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                                    <NavDropdown.Item href="/aboutUs">AboutUs</NavDropdown.Item>
+                                    <NavDropdown.Item href="/gameStar">Juego atrapa estrellas</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">
-                                        Separated link
+                                    <NavDropdown.Item href="/aboutUs">
+                                        About Us
                                     </NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>
