@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { ModificarJuego } from "./ModificarJuego.jsx";
 import { BuscarJuego } from "./BuscarJuego.jsx";
 import { Form, Button } from 'react-bootstrap';
+import '../assets/styles/FormJuegos.css';
 
 function FormJuegos() {
 
@@ -60,7 +61,10 @@ function FormJuegos() {
     }, [])
 
     return (
-        <>
+        <div className="form-juegos-container">
+            <div className="form-juegos-header">
+              <h1>Cargar Juegos</h1>
+            </div>
             <Form onSubmit={agregarJuego}>
                 <Form.Group className="mb-2" controlId="nombre">
                     <Form.Control
@@ -100,27 +104,31 @@ function FormJuegos() {
             </Form>
 
             {juegos.length > 0 && <h2>Lista de Juegos</h2>}
-            <ul>
+            <ul className="lista-juegos">
                 {juegos.map((j) => (
-                    <li key={j.id} style={{ marginBottom: '8px' }}>
+                    <li key={j.id}>
                         {j.modificado === false ? (
                             <ModificarJuego juego={j} funcion_modificar={agregar_modificado} modificar={modificar} />
                         ) : (
-                            <div>
+                            <div className="juego-detalle">
                                 ID: {j.id} -
                                 Nombre: {j.nombre} -
                                 Precio: ${j.precio} -
                                 Tipo: {j.tipo}
                             </div>
                         )}
-                        <Button variant="secondary" size="sm" onClick={() => modificar(j)} style={{ marginLeft: 8 }}>
-                            Modificar
-                        </Button>
+                        <div className="lista-actions">
+                          <Button variant="secondary" size="sm" onClick={() => modificar(j)}>
+                              Modificar
+                          </Button>
+                        </div>
                     </li>
                 ))}
             </ul>
-            <BuscarJuego juegos={juegos}>Texto</BuscarJuego>
-        </>
+            <div className="buscar-juego">
+              <BuscarJuego juegos={juegos}>Texto</BuscarJuego>
+            </div>
+        </div>
     )
 }
 

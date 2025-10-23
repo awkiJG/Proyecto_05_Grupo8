@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Form, Button } from 'react-bootstrap';
+import '../assets/styles/FormJuegos.css';
 
 export const BuscarJuego = ({ juegos }) => {
     const [ingreso, setIngreso] = useState("");
@@ -31,7 +32,7 @@ export const BuscarJuego = ({ juegos }) => {
                 <Button onClick={handleClick}>Buscar</Button>
             </Form.Group>
             {busqueda && resultado.length > 0 ?
-                <div>
+                <div className="resultado">
                 ID: {resultado[0].id} - 
                 Nombre: {resultado[0].nombre} - 
                 Precio: ${resultado[0].precio} - 
