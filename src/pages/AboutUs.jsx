@@ -6,7 +6,7 @@ function AboutUs() {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-    // en este ejemplo cargamos datos locales; en producción podrías hacer fetch a una API
+    // en este ejemplo se cargan los datos locales
     setMembers(membersData);
   }, []);
 
