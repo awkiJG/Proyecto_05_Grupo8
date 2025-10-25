@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../assets/styles/AtrapaEstrellas.css";
+import marioSound from "../assets/sounds/mario.mp3";
 
 export default function AtrapaEstrellas() {
   const [puntaje, setPuntaje] = useState(0);
@@ -7,6 +8,9 @@ export default function AtrapaEstrellas() {
   const [visible, setVisible] = useState(false);
   const [juegoActivo, setJuegoActivo] = useState(true);
   const [mensaje, setMensaje] = useState("");
+
+  // Crear instancia de audio para el sonido
+  const audio = new Audio(marioSound);
 
   // Genera una posición aleatoria en porcentajes (10% - 90%)
   const posicionAlAzar = () => {
@@ -37,6 +41,13 @@ export default function AtrapaEstrellas() {
   // función para cuando el jugador atrapa una estrella
   const agarrarEstrella = () => {
     if (!juegoActivo || !visible) return;
+    
+    // Reproducir sonido al atrapar la estrella
+    audio.currentTime = 0; // Reiniciar el audio al inicio
+    audio.play().catch(error => {
+      console.log('Error al reproducir el sonido:', error);
+    });
+    
     setPuntaje((p) => p + 1);
     setVisible(false);
   };
